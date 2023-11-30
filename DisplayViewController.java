@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
 public class DisplayViewController {
 	
 	private long startTime;
@@ -86,7 +87,8 @@ public class DisplayViewController {
             long elapsedTime = stopTime - startTime;
             String formattedTime = formatElapsedTime(elapsedTime);
             showPopUp(elapsedTime);
-        }
+            DataBaseConnection.saveParametersToDatabase(selectedEffortCategory, selectedLanguage, selectedProject, selectedlifeCycleStep, selectedDomain, startTime, stopTime);
+        }         
     }
     
     private void showPopUp(long elapsedTime) {
